@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  main:
+    container_name: main
+    build:
+      context: .
+    ports:
+      - 80:3000
+    depends_on:
+      - postgres
+    networks:
+      - bronet
+    env_file:
+      - .env.docker
+
+  postgres:
+    image: postgres:14
+    container_name: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    networks:
+      - bronet
+    env_file:
+      - .env.docker
+    volumes:
+      - ./:/docker-entrypoint-initdb.d
+
+networks:
+  bronet:
+    driver: bridge
