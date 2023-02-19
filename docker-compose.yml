@@ -18,7 +18,7 @@ services:
     container_name: note-frontend
     environment:
       NODE_ENV: production
-      VITE_API_URL: api
+      VITE_API_URL: /api/
     depends_on:
       - backend
     ports:

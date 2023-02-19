@@ -1,7 +1,7 @@
 import ky from 'ky';
 import { NoteAPI } from './note.api';
 
-const baseURL = import.meta.env.VITE_API_URL || 'api';
+const baseURL = import.meta.env.VITE_API_URL || '/api/';
 const baseApi = ky.create({ prefixUrl: baseURL });
 
 export const api = {
