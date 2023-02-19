@@ -1,24 +1,34 @@
 version: '3'
 
 services:
-  main:
-    container_name: note-main
+  backend:
+    container_name: note-backend
+    restart: always
+    environment:
+      NODE_ENV: production
+      DATABASE: 'docker.sqlite'
+      PORT: 3000
+      PER_PAGE: 15
     build:
       context: .
-    ports:
-      - 80:3000
+      dockerfile: Dockerfile.backend
+    networks:
+      - backend
+  frontend:
+    container_name: note-frontend
+    environment:
+      NODE_ENV: production
+      VITE_API_URL: api
     depends_on:
-      - postgres
-    env_file:
-      - .env.docker
-
-  postgres:
-    image: postgres:14
-    container_name: note-postgres
-    restart: always
+      - backend
     ports:
-      - 5432:5432
-    env_file:
-      - .env.docker
-    volumes:
-      - ./:/docker-entrypoint-initdb.d
+    - 80:80
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge

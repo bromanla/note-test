@@ -1,6 +1,7 @@
-# compiled output
-dist
+# Compiled output
 node_modules
+build
+dist
 
 # Logs
 logs
@@ -14,18 +15,14 @@ lerna-debug.log*
 # OS
 .DS_Store
 
-# Tests
-/coverage
-/.nyc_output
-
 # IDEs and editors
-/.idea
+.idea
 .project
 .classpath
 .c9/
 *.launch
-.settings/
 *.sublime-workspace
+.settings
 
 # IDE - VSCode
 .vscode/*
@@ -34,7 +31,12 @@ lerna-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# enviroment
-.env*
-!.env.project
-!.env.docker
+# Enviroment
+.env
+
+# Sqlite
+*.sqlite
+!template.sqlite
+
+# Vite
+components.d.ts

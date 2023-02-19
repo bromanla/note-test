@@ -1,2 +1,7 @@
-node_modules
-npm-debug.log
+.git
+**/node_modules
+**/build
+**/dist
+**/.sqlite
+!template.sqlite
+**/*.env

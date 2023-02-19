@@ -1,0 +1,13 @@
+FROM node:16-alpine AS builder
+WORKDIR /app
+COPY . .
+RUN npm ci -w @severstal-test/backend --include-workspace-root
+RUN npm run build -w @severstal-test/backend
+FROM node:16-alpine
+
+WORKDIR /app
+COPY . .
+RUN mv ./packages/backend/template.sqlite ./packages/backend/docker.sqlite
+RUN npm ci -w @severstal-test/backend --omit=dev
+COPY --from=builder /app/packages/backend/build ./packages/backend/build
+CMD ["npm", "run", "start:prod", "-w", "@severstal-test/backend" ]

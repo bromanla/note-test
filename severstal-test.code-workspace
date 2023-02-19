@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "✨ notes",
+			"path": "."
+		},
+		{
+			"name": "🚀 @severstal-test/backend",
+			"path": "packages/backend"
+		},
+		{
+			"name": "🚀 @severstal-test/frontend",
+			"path": "packages/frontend"
+		},
+    {
+			"name": "📦 @severstal-test/common",
+			"path": "packages/common"
+		}
+	],
+	"settings": {}
+}

@@ -1,0 +1,10 @@
+{
+  "name": "@severstal-test/common",
+  "version": "0.1.0",
+  "main": "build/index.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "prebuild": "rimraf build",
+    "build": "tsc"
+  }
+}
