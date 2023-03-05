@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import type { IOptionDTO } from '@severstal-test/common';
 
 export type ConstructorOptionDTO = {
@@ -8,12 +9,19 @@ export type ConstructorOptionDTO = {
 
 export class OptionDTO implements IOptionDTO {
   /* Элементов на странице */
+  @ApiProperty()
   public itemsPerPage: number;
+
   /* Общее количество записей */
+  @ApiProperty()
   public totalItems: number;
+
   /* Общее количество страниц */
+  @ApiProperty()
   public totalPage: number;
+
   /* Текущая страница */
+  @ApiProperty()
   public currentPage: number;
 
   constructor(options: ConstructorOptionDTO) {

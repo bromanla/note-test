@@ -1,5 +1,11 @@
 import { plainToInstance } from 'class-transformer';
-import { IsEnum, IsNumber, validateSync } from 'class-validator';
+import {
+  IsEnum,
+  IsString,
+  IsNumber,
+  IsOptional,
+  validateSync,
+} from 'class-validator';
 
 enum Environment {
   Development = 'development',
@@ -15,9 +21,15 @@ class EnvironmentVariables {
 
   @IsNumber()
   public PER_PAGE: number;
+
+  @IsOptional()
+  @IsString()
+  public SWAGGER_PREFIX: string;
 }
 
-export function validateEnv(config: Record<string, unknown>) {
+export type Config = keyof EnvironmentVariables;
+
+export function validateConfig(config: Record<string, unknown>) {
   const validatedConfig = plainToInstance(EnvironmentVariables, config, {
     enableImplicitConversion: true,
   });

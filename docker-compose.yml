@@ -9,6 +9,7 @@ services:
       DATABASE: 'docker.sqlite'
       PORT: 3000
       PER_PAGE: 15
+      SWAGGER_PREFIX: http://localhost/api
     build:
       context: .
       dockerfile: Dockerfile.backend

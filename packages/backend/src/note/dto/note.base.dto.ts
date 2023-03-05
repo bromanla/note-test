@@ -1,10 +1,18 @@
 import { Note } from '../entity/note.entity';
+import { ApiProperty } from '@nestjs/swagger';
 import type { IBaseNoteDTO } from '@severstal-test/common';
 
 export class BaseNoteDTO implements IBaseNoteDTO {
+  @ApiProperty()
   public id: number;
+
+  @ApiProperty()
   public text: string;
+
+  @ApiProperty()
   public createdDate: Date;
+
+  @ApiProperty()
   public updatedDate: Date;
 
   constructor(note: Note) {
