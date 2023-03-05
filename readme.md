@@ -9,9 +9,9 @@ docker-compose up
 
 ## Build
 
-> Make environment variables (see .env.example)
+> Make environment variables (see packages/*/.env.example)
 
-> Duplicate database (see packages/backend template.sqlite)
+> Duplicate database (see packages/backend/template.sqlite)
 
 > We use node version 16+
 
